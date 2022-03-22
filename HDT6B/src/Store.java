@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.LinkedHashMap;
@@ -10,6 +11,9 @@ public class Store {
 	
 	public void run() {
 		this.factory();			
+		ArrayList<String> lista = vista.toRead();
+		this.toMap(lista);
+
 	}
 	
 	
@@ -29,5 +33,26 @@ public class Store {
 				map = new LinkedHashMap<String, String>();
 				break;
 		}
+	}
+	
+	/**
+	 * Pone los artiulos en un Mapa
+	 * @param list ArrayList que contiene cada linea del txt
+	 */
+	public void toMap(ArrayList<String> list) {
+		for (int i = 0; i < list.size(); i++) {
+			String[] valueKey = list.get(i).split("\\|");
+			valueKey[0] = valueKey[0].strip();
+			valueKey[1] = valueKey[1].strip();
+			
+			//String[] valueArray = {valueKey[0]};
+				
+			System.out.println("Llave: " + valueKey[1] + " Valor: " + valueKey[0]);
+			
+			map.put(valueKey[1], valueKey[0]);
+						
+		}
+		
+		
 	}
 }

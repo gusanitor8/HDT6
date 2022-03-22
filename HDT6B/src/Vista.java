@@ -1,12 +1,12 @@
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
 public class Vista {
-	Scanner input = new Scanner(System.in);
-	//Scanner scan = new Scanner();
-	
+	Scanner input = new Scanner(System.in);	
 	
 	/**
 	 * Abreviacvcion para hacer un print
@@ -49,9 +49,27 @@ public class Vista {
 	}
 	
 	
-	
-	public void toRead() {
-		//File myFile = new File("ListadoProducto.txt");
+	/**
+	 * Lee cada linea del archivo de texto y las devuelve en un ArrayList
+	 * @return ArrayList con cada linea del archivo 
+	 */
+	public ArrayList toRead() {
+		ArrayList<String> strings = new ArrayList<String>();
+		
+		try {
+			File texto = new File("src/ListadoProducto.txt");
+			Scanner scan = new Scanner(texto);
+			
+			while (scan.hasNextLine()) {
+		        String data = scan.nextLine();
+		        strings.add(data);
+			}
+		scan.close();
+		}catch(FileNotFoundException e) {
+			System.out.println("An error occurred.");
+		}
+		
+		return strings;
 	}
 	
 	
