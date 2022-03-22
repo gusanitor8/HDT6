@@ -157,20 +157,38 @@ public class Vista {
 		return option;
 	}
 	
-	
+	/**
+	 * Mensaje que se despliega cuando se agrega un producto
+	 * @param product producto
+	 * @param quant cantidad
+	 */
 	public void productAddedFeedback(String product, int quant) {
 		print("Se agrego: " + product + " a su coleccion, y ahora cuenta con: " + quant + " de ese producto e su coleccion");		
 	}
 	
+	/**
+	 * MEnsaje que se despliega cuando se pide la categoria de un producto
+	 * @param product
+	 * @param cat
+	 */
 	public void categoryFeedback(String product, String cat) {
 		print("El producto: " + product + " entra en la categoria: " + cat);
 	}
 	
+	/**
+	 * Mensaje de informacion del producto 
+	 * @param product
+	 * @param can
+	 * @param category
+	 */
 	public void productInfoFeedback(String product, String can, String category) {
 		print("El producto: " + product + " pertenece a la categoria: " +category + " y cuenta con: " + can + " elementos en su coleccion");
 		
 	}
 	
+	/**
+	 * Mensaje de error
+	 */
 	public void productNotFound() {
 		print("El producto que ingreso no existe, intente escribirlo EXACTAMENTE como esta indicado en el txt \n");
 	}

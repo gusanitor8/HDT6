@@ -11,7 +11,9 @@ public class Store {
 	String[] products; //keys
 	boolean toRun = true;
 
-	
+	/**
+	 * metodo que se manda a llamar en el driver program
+	 */
 	public void run() {
 		this.factory();			
 		ArrayList<String> lista = vista.toRead();
@@ -19,6 +21,9 @@ public class Store {
 
 	}
 	
+	/**
+	 * Metodo constructor
+	 */
 	public Store() {
 		switch(vista.askImplementation()) {
 		case 1:
@@ -120,13 +125,18 @@ public class Store {
 		vista.productAddedFeedback(product, quantity);
 	}
 	
-	
+	/**
+	 * Obtiene el valor de una llave
+	 * @param product la llave del mapa
+	 */
 	public void getCategory(String product) {
 		String category = map.get(product)[0];
 		vista.categoryFeedback(product, category);
 	}
 	
-	
+	/**
+	 * Despliega la informacion de todo la coleccion
+	 */
 	public void collectionInfo() {
 		for (String key: products) {
 			String[] valueArray = map.get(key);
@@ -141,6 +151,11 @@ public class Store {
 		}
 	}
 	
+	
+	/**
+	 * despliega informacion de un producto en especifico
+	 * @param product
+	 */
 	public void productInfo(String product) {
 		boolean productFound = false;
 		
@@ -160,6 +175,9 @@ public class Store {
 		}
 	}
 	
+	/**
+	 * Muestra todo el inventario
+	 */
 	public void showInventory() {
 		for (String key: products) {
 			String[] valueArray = map.get(key);
@@ -169,4 +187,6 @@ public class Store {
 			vista.productInfoFeedback(key, cantidad, categoria);
 		}
 	}
+	
+
 }
